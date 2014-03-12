@@ -71,7 +71,7 @@ describe('SauceLabs view', function() {
 				runner.config.seleniumServerURL = urlUtils.format(seleniumServerURL);
 			});
 
-			it('should obtain auth data from environment variables', function() {
+			it('should obtain auth data from configuration', function() {
 				checkMatch('user-config', 'pass-config');
 			});
 		});

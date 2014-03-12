@@ -34,6 +34,7 @@ describe('SauceLabs view', function() {
 	describe('#getAuth', function() {
 
 		describe('when there is no way to get the data', function() {
+			before(stdoutSpy.reset);
 			beforeEach(stdoutSpy.mute);
 			afterEach(stdoutSpy.unmute);
 

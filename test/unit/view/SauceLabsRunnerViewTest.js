@@ -92,4 +92,25 @@ describe('SauceLabs view', function() {
 
 	});
 
+	describe('when not set to always quit', function() {
+		before(function() {
+			runner.config.quit = 'never';
+		});
+
+		after(function() {
+			runner.config.quit = 'always';
+		});
+
+		before(stdoutSpy.reset);
+		beforeEach(stdoutSpy.mute);
+		afterEach(stdoutSpy.unmute);
+
+		it('should provide information to the user', function() {
+			subject.showStart();
+			stdoutSpy.printed().should.include('quit');
+			stdoutSpy.printed().should.include('always');
+			stdoutSpy.printed().should.match(/wastes? 90 ?s/);
+		});
+	});
+
 });
